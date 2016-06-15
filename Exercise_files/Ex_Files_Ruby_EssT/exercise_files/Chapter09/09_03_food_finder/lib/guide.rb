@@ -1,5 +1,0 @@
-class Guide
-
-
-
-end
