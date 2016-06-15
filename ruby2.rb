@@ -1,9 +1,9 @@
 def welcome
-	puts "Hello World!"
+  puts "Hello World!"
 end
 
-def add
-	puts 1 + 1
+def add(v1=0, v2=0)
+  return v1 + v2
 end
 
 # Global, class and instance variables are available
@@ -21,11 +21,11 @@ def over_five?
   # local variables inside a method are LOCAL to the method
   # They don't "pull in" local variables (unlike blocks).
   # They don't persist once the method is done.
-	value = 3
-	puts value > 5 ? 'Over 5' : 'Not over 5'
+  value = 3
+  puts value > 5 ? 'Over 5' : 'Not over 5'
 end
 
 welcome
-add
+add(3,4)
 longest_word
 over_five?
