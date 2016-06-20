@@ -37,7 +37,18 @@ class Animal
 end
 
 class Cow < Animal
+	def color
+		"The cow's color is #{@color}"
+	end
 end
+
+class Pig < Animal
+	def noise
+		parent_noise = super
+		return "Hello and also #{parent_noise}"
+	end
+end
+
 
 Animal.species = ['frog', 'fish']
 puts Animal.species.inspect
@@ -57,5 +68,9 @@ puts animal2.color
 
 puts Animal.current_animals.inspect
 
-bessy= Cow.new("Moo!")
+bessy= Cow.create_with_attributes("Moo!", "yellow")
 puts bessy.noise
+puts bessy.color
+
+wilbur = Pig.new("Oink!")
+puts wilbur.noise
