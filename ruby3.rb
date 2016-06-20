@@ -2,9 +2,11 @@ class Animal
   attr_accessor :name
   attr_writer :color
   attr_reader :legs, :arms
-  def setup_limbs
-  		@legs = 4
-  		@arms = 0
+  def initialize(noise, legs = 4, arms = 0)
+  		@noise = noise
+  		@legs = legs
+  		@arms = arms
+  		puts "A new animal has been created"
   end	
   def noise=(noise)
   	@noise = noise
@@ -17,9 +19,7 @@ class Animal
   end
 end
 
-animal = Animal.new
-animal.setup_limbs
-animal.noise = "Moo!"
+animal = Animal.new("Moo!", 4, 0)
 animal.name = "Steve"
 puts animal.name
 animal.color = "black"
@@ -28,6 +28,5 @@ puts animal.legs
 puts animal.noise
 
 
-animal2 = Animal.new
-animal2.noise = "Oink!"
+animal2 = Animal.new("Oink!")
 puts animal2.noise
