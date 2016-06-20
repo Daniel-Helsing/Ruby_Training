@@ -1,28 +1,15 @@
-module ContactInfo
-  attr_accessor :first_name, :last_name, :city, :state, :zip_code
-
-  def full_name
-    return @first_name + " " + @last_name
-  end
-
-  def city_state_zip
-    csz = @city
-    csz += ", #{@state}" if @state
-    csz += "  #{@zip_code}" if @zip_code
-    return csz
-  end
-end
-
-
+require 'ruby4-a.rb'
 class Person
   include ContactInfo
 end
 
+require 'ruby4-a.rb'
 class Teacher
   include ContactInfo
   attr_accessor :lesson_plans
 end
 
+require 'ruby4-a.rb'
 class Student < Person
   attr_accessor :books, :grades
 end
