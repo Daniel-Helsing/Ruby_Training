@@ -2,9 +2,16 @@ class Animal
   attr_accessor :name
   attr_writer :color
   attr_reader :legs, :arms
-
-  def self.all_species
-  	['cat', 'cow', 'dog', 'duck', 'horse', 'pig']
+  @@species = ['cat', 'cow', 'dog', 'duck', 'horse', 'pig']
+  @@current_animals = []
+  def self.species
+  	@@species
+  end
+  def self.species=(array=[])
+  	@@species = array
+  end
+  def self.current_animals
+  		@@current_animals
   end
   def self.create_with_attributes(noise, color)
   	animal = self.new(noise)
@@ -15,6 +22,7 @@ class Animal
   		@noise = noise
   		@legs = legs
   		@arms = arms
+  		@@current_animals << self
   		puts "A new animal has been created"
   end	
   def noise=(noise)
@@ -28,7 +36,8 @@ class Animal
   end
 end
 
-puts Animal.all_species.inspect
+Animal.species = ['frog', 'fish']
+puts Animal.species.inspect
 
 animal = Animal.new("Moo!", 4, 0)
 animal.name = "Steve"
@@ -42,3 +51,5 @@ puts animal.noise
 animal2 = Animal.create_with_attributes("Oink!", "Pink")
 puts animal2.noise
 puts animal2.color
+
+puts Animal.current_animals.inspect
