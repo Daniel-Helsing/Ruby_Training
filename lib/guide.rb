@@ -1,4 +1,4 @@
-require 'restaurant'
+require 'restaurant.rb'
 class Guide
 
 	def initialize(path=nil)
@@ -10,10 +10,12 @@ class Guide
 		else
 			puts "Exiting.\n\n"
 			exit!
+		end	
 	end
 
 	def launch!
 		introduction
+
 		conclusion
 	end	
 	
@@ -25,5 +27,6 @@ class Guide
 	def conclusion
 		puts "\n<<< Goodbye and Bon Appetit! >>>\n\n\n"
 	end
-	
 end
+
+
