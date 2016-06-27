@@ -32,6 +32,25 @@ class Restaurant
     # read the restaurant file
     # return instances of restaurant
   end
+
+  def self.build_using_questions
+    puts "\nAdd a restaurant\n\n".upcase
+    args = {}
+    print "Restaurant name: "
+    args[:name] = gets.chomp.strip
+    print "Cuisine type: "
+    args[:cuisine] = gets.chomp.strip
+    print "Average price: "
+    args[:price] = gets.chomp.strip
+    return self.new(args)
+  end
+
+  def initialize(args={})
+    @name = args[:name] || "" #Skoglands a douche
+    @cuisine = args[:cuisine] || ""
+    @price = args[:price] || ""
+  end
+
   def save
     return false unless Restaurant.file_usable?
     File.open(@@filepath, 'a') do |file|
