@@ -1,15 +1,16 @@
 class Restaurant
-@@filepath = nil
+  @@filepath = nil
+
   def self.filepath=(path=nil)
     @@filepath = File.join(APP_ROOT, path)
   end
 
   def self.file_exists?
-      if @@filepath && File.exists?(@@filepath)
-        return true
-      else
-        return false
-     end
+    if @@filepath && File.exists?(@@filepath)
+      return true
+    else
+      return false
+    end
     # class should know if the restaurant file exists
   end
 

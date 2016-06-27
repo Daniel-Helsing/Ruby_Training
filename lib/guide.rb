@@ -14,18 +14,38 @@ class Guide
 
 	def launch!
 		introduction
+    result = nil
+    until result == :quit
+      print "> "
+      user_response = gets.chomp
+      result = do_action(user_response)
+    end
+      conclusion
+  end
 
-		conclusion
-	end	
-	
-	def introduction
-		puts "\n\n<<< Welcome to the Food Finder >>>\n\n"
-		puts "This is an interactive guide to help you find the food you crave.\n\n"
-	end
+  def do_action(action)
+    case action
+    when 'list'
+      puts "Listing..."
+    when 'find'
+      puts "Fining"
+    when 'add'
+      puts "Adding..."
+    when 'quit'
+      return :quit
+    else 
+      puts "\nI don't understand that command.\n"
+    end
+  end
 
-	def conclusion
-		puts "\n<<< Goodbye and Bon Appetit! >>>\n\n\n"
-	end
+  def introduction
+    puts "\n\n<<< Welcome to the Food Finder >>>\n\n"
+    puts "This is an interactive guide to help you find the food you crave.\n\n"
+  end
+
+  def conclusion
+    puts "\n<<< Goodbye and Bon Appetit! >>>\n\n\n"
+  end
 end
 
 
