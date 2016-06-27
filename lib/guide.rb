@@ -1,4 +1,3 @@
-require 'restaurant.rb'
 class Guide
 
 	def initialize(path=nil)
