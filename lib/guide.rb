@@ -1,29 +1,29 @@
 class Guide
   class Config
-      @@actions = ['list', 'find', 'add', 'quit']
-      def self.actions; @@actions; end
+    @@actions = ['list', 'find', 'add', 'quit']
+    def self.actions; @@actions; end
   end
 
-	def initialize(path=nil)
-		Restaurant.filepath = path
-		if Restaurant.file_usable?
-			puts "Found restaurant file."
-		elsif Restaurant.create_file
-			puts "Created restaurant file."
-		else
-			puts "Exiting.\n\n"
-			exit!
-		end	
-	end
+  def initialize(path=nil)
+    Restaurant.filepath = path
+    if Restaurant.file_usable?
+      puts "Found restaurant file."
+    elsif Restaurant.create_file
+      puts "Created restaurant file."
+    else
+      puts "Exiting.\n\n"
+      exit!
+    end	
+  end
 
-	def launch!
-		introduction
+  def launch!
+    introduction
     result = nil
     until result == :quit
       action = get_action
       result = do_action(action)
     end
-      conclusion
+    conclusion
   end
 
   def get_action
