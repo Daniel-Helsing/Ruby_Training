@@ -1,34 +1,6 @@
-
 @board = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
 @play_on = true
 @counter = 0
-
-def output_tictactoe
-  puts @board[0]+"|"+@board[1]+"|"+@board[2]
-  puts "-----"
-  puts @board[3]+"|"+@board[4]+"|"+@board[5]
-  puts "-----"
-  puts @board[6]+"|"+@board[7]+"|"+@board[8]
-end
-
-def play_tic
-  until @play_on == false
-    output_tictactoe
-    puts "Player 1:(x) What box number would you like to select"
-    x = gets.strip.to_i
-    @board[x] = "x"
-    @counter++
-    check
-    output_tictactoe
-    puts "Player 2:(o) What box number would you like to select\n"
-    o = gets.strip.to_i
-    @board[o] = "o"
-    @counter++
-    check
-  end
-  puts "Thank you for playing"
-end
-
 
 def check
   if (@board[0] == "x" && @board[1] == "x" && @board[2] == "x") 
@@ -83,4 +55,27 @@ def check
     @play_on = false 
   end  
 end
+
+def output_tictactoe
+  puts @board[0]+"|"+@board[1]+"|"+@board[2]
+  puts "-----"
+  puts @board[3]+"|"+@board[4]+"|"+@board[5]
+  puts "-----"
+  puts @board[6]+"|"+@board[7]+"|"+@board[8]
+end
+
+def play_tic
+  until @play_on == false
+    output_tictactoe
+    puts "Player 1:(x) What box number would you like to select"
+    x = gets.strip.to_i
+    @board[x] = "x"
+    output_tictactoe
+    puts "Player 2:(o) What box number would you like to select\n"
+    o = gets.strip.to_i
+    @board[o] = "o"
+  end
+  puts "Thank you for playing"
+end
+
 play_tic
